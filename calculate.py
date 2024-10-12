@@ -6,8 +6,21 @@ figs = ['circle', 'square']
 funcs = ['perimeter', 'area']
 sizes = {}
 
-def calc(fig, func, size):
-	assert fig in figs
+def calc(fig, func, size): 
+    """Принимает название фигуры, функцию, размерность, возвращает результат выполнения функции.
+
+    Параметры:
+    fig (str): название фигуры
+    func (str): название функции
+    size (int, float): размерность 
+
+    Возвращает:
+    int, float: результат выполнния функции
+
+    Пример использования:
+    -
+    """
+        assert fig in figs
 	assert func in funcs
 
 	result = eval(f'{fig}.{func}(*{size})')
