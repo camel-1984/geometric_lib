@@ -2,6 +2,7 @@ import unittest
 import math
 from triangle import area, perimeter
 
+
 class TestTriangle(unittest.TestCase):
 
     def test_area_valid_triangle(self):
@@ -18,12 +19,12 @@ class TestTriangle(unittest.TestCase):
         self.assertAlmostEqual(result, expected_perimeter)
 
     def test_area_invalid_triangle(self):
-        a, b, c = 1, 2, 10  
+        a, b, c = 1, 2, 10
         with self.assertRaises(ValueError):
             area(a, b, c)
 
     def test_perimeter_invalid_triangle(self):
-        a, b, c = 1, 2, 10  
+        a, b, c = 1, 2, 10
         with self.assertRaises(ValueError):
             perimeter(a, b, c)
 

@@ -1,6 +1,6 @@
-import circle
-import square
-import triangle
+import circle  # noqa: F401
+import square  # noqa: F401
+import triangle  # noqa: F401
 
 figs = ['circle', 'square', 'triangle']
 funcs = ['perimeter', 'area']
@@ -13,13 +13,16 @@ sizes = {
     "perimeter-triangle": 3
 }
 
+
 def calc(fig, func, size):
     assert fig in figs, "Unknown figure"
     assert func in funcs, "Unknown function"
 
     expected_size = sizes.get(f"{func}-{fig}")
     if len(size) != expected_size:
-        raise TypeError(f"Expected {expected_size} arguments for {fig} {func}, got {len(size)}")
+        raise TypeError(
+            f"Expected {expected_size} arguments for {fig} {func}, got {len(size)}"
+        )
 
     return eval(f'{fig}.{func}(*{size})')
 
@@ -42,7 +45,16 @@ if __name__ == "__main__":
     else:
         while len(size) != expected_size:
             size = list(
-                map(int, filter(None, input(f"Input {expected_size} figure sizes separated by space:\n").split(' '))))
+                map(
+                    int,
+                    filter(
+                        None,
+                        input(
+                            f"Input {expected_size} figure sizes separated by space:\n"
+                        ).split(' ')
+                    )
+                )
+            )
 
     try:
         result = calc(fig, func, size)

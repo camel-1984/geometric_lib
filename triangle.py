@@ -1,5 +1,6 @@
 import math
 
+
 def area(a, b, c):
     if a <= 0 or b <= 0 or c <= 0:
         raise ValueError("Sides cannot be negative")
@@ -7,6 +8,7 @@ def area(a, b, c):
         raise ValueError("The given sides do not form a valid triangle")
     p = (a + b + c) / 2
     return math.sqrt(p * (p - a) * (p - b) * (p - c))
+
 
 def perimeter(a, b, c):
     if a <= 0 or b <= 0 or c <= 0:
