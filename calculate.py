@@ -21,7 +21,8 @@ def calc(fig, func, size):
     expected_size = sizes.get(f"{func}-{fig}")
     if len(size) != expected_size:
         raise TypeError(
-            f"Expected {expected_size} arguments for {fig} {func}, got {len(size)}"
+            f"Expected {expected_size} arguments for "
+            f"{fig} {func}, got {len(size)}"
         )
 
     return eval(f'{fig}.{func}(*{size})')
@@ -33,10 +34,12 @@ if __name__ == "__main__":
     size = list()
 
     while fig not in figs:
-        fig = input(f"Enter figure name, available are {figs}:\n")
+        fig = input(f"Enter figure name, "
+                    f"available are {figs}:\n")
 
     while func not in funcs:
-        func = input(f"Enter function name, available are {funcs}:\n")
+        func = input(f"Enter function name, "
+                     f"available are {funcs}:\n")
 
     expected_size = sizes.get(f"{func}-{fig}", 1)
 
@@ -44,17 +47,11 @@ if __name__ == "__main__":
         size = [int(input("Input a single size value:\n"))]
     else:
         while len(size) != expected_size:
-            size = list(
-                map(
-                    int,
-                    filter(
-                        None,
-                        input(
-                            f"Input {expected_size} figure sizes separated by space:\n"
-                        ).split(' ')
-                    )
-                )
+            size_input = input(
+                f"Input {expected_size} figure "
+                f"sizes separated by space:\n"
             )
+            size = list(map(int, filter(None, size_input.split(' '))))
 
     try:
         result = calc(fig, func, size)
